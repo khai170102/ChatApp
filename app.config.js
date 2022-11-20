@@ -1,4 +1,5 @@
-{
+import 'dotenv/config'
+export default{
   "expo": {
     "name": "ChatApp",
     "slug": "ChatApp",
@@ -15,7 +16,7 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "*/"
     ],
     "ios": {
       "supportsTablet": true
@@ -28,6 +29,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    extra:{
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.AUTH_DOMAIN,
+      projectID: process.env.PROJECT_ID,
+      storageBucket: process.env.STORAGE_BUCKET,
+      messagingSenderID: process.env.MESSAGING_SENDER_ID,
+      appId: process.env.APP_ID
     }
   }
 }
+
