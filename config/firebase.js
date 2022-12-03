@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import Constants from "expo-constants";
 // Firebase config
+console.log(Constants.manifest.extra.projectId);
 const firebaseConfig = {
   apiKey: Constants.manifest.extra.apiKey,
   authDomain: Constants.manifest.extra.authDomain,
@@ -10,7 +11,6 @@ const firebaseConfig = {
   storageBucket: Constants.manifest.extra.storageBucket,
   messagingSenderId: Constants.manifest.extra.messagingSenderId,
   appId: Constants.manifest.extra.appId,
-  databaseURL: Constants.manifest.extra.databaseURL,
 };
 // initialize firebase
 initializeApp(firebaseConfig);
