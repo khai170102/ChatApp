@@ -21,7 +21,7 @@ export default function Login({ navigation }) {
   const onHandleLogin = () => {
     if (email !== "" && password !== "") {
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => navigation.navigate("Home"))
+        .then(() => navigation.navigate("Chat"))
         .catch((err) => Alert.alert("Login error", err.message));
     }
   };
