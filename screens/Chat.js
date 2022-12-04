@@ -21,7 +21,6 @@ import { AntDesign } from "@expo/vector-icons";
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const navigation = useNavigation();
-
   const onSignOut = () => {
     signOut(auth).catch((error) => console.log("Error logging out: ", error));
   };
@@ -51,7 +50,7 @@ export default function Chat() {
     const q = query(collectionRef, orderBy("createdAt", "desc"));
 
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      console.log("querySnapshot unsusbscribe");
+      console.log(querySnapshot);
       setMessages(
         querySnapshot.docs.map((doc) => ({
           _id: doc.data()._id,
@@ -77,29 +76,31 @@ export default function Chat() {
       user,
     });
   }, []);
-
   return (
     // <>
     //   {messages.map(message => (
     //     <Text key={message._id}>{message.text}</Text>
     //   ))}
     // </>
-    <GiftedChat
-      messages={messages}
-      showAvatarForEveryMessage={false}
-      showUserAvatar={false}
-      onSend={(messages) => onSend(messages)}
-      messagesContainerStyle={{
-        backgroundColor: "#fff",
-      }}
-      textInputStyle={{
-        backgroundColor: "#fff",
-        borderRadius: 20,
-      }}
-      user={{
-        _id: auth?.currentUser?.email,
-        avatar: "https://i.pravatar.cc/300",
-      }}
-    />
+    <>
+      <GiftedChat
+        messages={messages}
+        showAvatarForEveryMessage={false}
+        showUserAvatar={false}
+        onSend={(messages) => onSend(messages)}
+        messagesContainerStyle={{
+          backgroundColor: "#fff",
+        }}
+        textInputStyle={{
+          backgroundColor: "#fff",
+          borderRadius: 20,
+        }}
+        user={{
+          _id: auth?.currentUser?.email,
+          avatar:
+            "2wCEAAkGBxASEBITEhAVFRUSFRUVFhUVFRUVEBMXGBYYFxcYGBUYHSggGBooHRUWIjEhKCorLi46Fx8zODMtNyotLisBCgoKDg0OGhAQGi0lHSUtKy0tLSstLS0tNS0tNS0tLS0tLS0tLS0tKy0tKy0tLS0tMystOC0tLS0tLS0tNy03K",
+        }}
+      />
+    </>
   );
 }
