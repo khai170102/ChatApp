@@ -63,7 +63,7 @@ function RootNavigator() {
 
   return (
     <NavigationContainer>
-      {user && <login /> ? <ChatStack /> : <AuthStack />}
+      {user ? <ChatStack /> : <AuthStack />}
     </NavigationContainer>
   );
 }
